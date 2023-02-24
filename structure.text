@@ -1,0 +1,31 @@
+steps for the builg project.
+
+for Adding students
+
+1.create HTML to get info of the students.
+2.Take the students from HTML  and store it in localstorage.
+3. Pass student data from HTML to js(script).
+4. Pass student data from js(script) to localstorage.
+
+
+for displaying  students
+
+1. Make structure of HTML of data.
+1.1 Make structure for making attendence. (Present, absent).
+3. Take student list from localstorage into js.
+4. Add students into HTML by using js.
+
+
+For making attendence
+
+1. Present - function - db - Present with date
+1. Absent - function - db - Absent with date
+
+Input  Add students Name- 
+
+1. Avinash - [Present] [Absent]
+2. Kalpesh - [Present] [Absent]\
+
+               Avinash Kalpesh 
+1. 23/02/2023  Present Absent
+2. 24/02/2023  Absent  Present
