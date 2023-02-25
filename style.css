@@ -3,3 +3,31 @@
     width: 50%;
     justify-content: space-around;
 }
+
+#displayingstudentlist{
+    border: 1px solid black;
+    height: 200px;
+}
+
+#student{
+    display: flex;
+}
+
+#student > div:nth-child(1){
+    border: 1px solid black;
+    width: 20%;
+    height: 200px;
+}
+
+
+#student > div:nth-child(1) > p{
+    text-align: center;
+}
+
+#student > div:nth-child(2){
+    border: 1px solid black;
+    width: 80%;
+    height: 200px;
+    display: flex;
+    justify-content: space-evenly;
+}

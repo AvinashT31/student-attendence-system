@@ -26,7 +26,8 @@ function addstudent() {
     
     document.getElementById("addingstudents").value = "";
     markingAttendance();
-    displayingstudentlist();
+    studentAttendance();
+    // displayingstudentlist();
     
 }
 
@@ -83,7 +84,7 @@ function markingAttendance(){
 
     var students = []
 
-    for (var i=0; i <StudentList.length; i++){
+    for (var i=0; i < StudentList.length; i++){
         students += `<div id = "content"><p>${StudentList[i].nameOfStudent}</p>
         <p><i onclick="present(${i})" class="fa-solid fa-check"></i></p>
         <p><i onclick ="absent(${i})" class="fa-solid fa-xmark"></i></p></div>`
@@ -162,28 +163,51 @@ function absent(index){
     }
 }
 
-
-function displayingstudentlist(){
-
-    // Taking data from Storage
-    var StudentList = JSON.parse(localStorage.getItem("StudentList"));
-    console.log(StudentList, "StudentList");
+function studentAttendance(){
 
 
-    // taking tags from html
-    var divFromHTML = document.getElementById("displayingstudentlist");
-    console.log(divFromHTML, "divFromHTML");
+var StudentInfo = JSON.parse(localStorage.getItem("StudentList"));
+console.log(StudentInfo, "StudentInfo");
 
-    var students = []
+var StudentData = document.getElementById("studentList");
+console.log(StudentData, "StudentData");
 
-    for (var i=0; i <StudentList.length; i++){
-        students += `<div><p>${StudentList[i].nameOfStudent}</p></div>`;
-    }
+var studentsDetails = []
 
-    console.log(students, "students")
-    divFromHTML.innerHTML = students;
+for (var i=0; i < StudentList.length; i++){
+    students += `<div id = "content"><p>${StudentList[i].nameOfStudent}</p>
+    <p><i onclick="present(${i})" class="fa-solid fa-check"></i></p>
+    <p><i onclick ="absent(${i})" class="fa-solid fa-xmark"></i></p></div>`
 }
-displayingstudentlist()
+
+console.log(studentsDetails, "studentsDetails")
+divFromHTML.innerHTML = studentsDetails;
+
+}
+studentAttendance()
+
+
+// function displayingstudentlist(){
+
+//     // Taking data from Storage
+//     var StudentList = JSON.parse(localStorage.getItem("StudentList"));
+//     console.log(StudentList, "StudentList");
+
+
+//     // taking tags from html
+//     var divFromHTML = document.getElementById("displayingstudentlist");
+//     console.log(divFromHTML, "divFromHTML");
+
+//     var students = []
+
+//     for (var i=0; i <StudentList.length; i++){
+//         students += `<div id=studentInfo><p>${StudentList[i].nameOfStudent}</p></div>`;
+//     }
+
+//     console.log(students, "students")
+//     divFromHTML.innerHTML = students;
+// }
+// displayingstudentlist()
 
 
 // function displayingstudentlist(){
