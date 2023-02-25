@@ -26,7 +26,7 @@ function addstudent() {
     
     document.getElementById("addingstudents").value = "";
     markingAttendance();
-    studentAttendance();
+    // studentAttendance();
     // displayingstudentlist();
     
 }
@@ -163,29 +163,53 @@ function absent(index){
     }
 }
 
-function studentAttendance(){
+function studentAttendance(index){
 
+     var StudentDataFrom = JSON.parse(localStorage.getItem("StudentList"));
+    //  var user = StudentDataFrom[index];
+    // console.log(user,"user");
 
-var StudentInfo = JSON.parse(localStorage.getItem("StudentList"));
-console.log(StudentInfo, "StudentInfo");
+    var studentData = document.getElementById("StudentInfo");
+    console.log(studentData, "studentData");
 
-var StudentData = document.getElementById("studentList");
-console.log(StudentData, "StudentData");
+    var Student = []
 
-var studentsDetails = []
+    for(var i=0; i < StudentDataFrom.length; i++){
 
-for (var i=0; i < StudentList.length; i++){
-    students += `<div id = "content"><p>${StudentList[i].nameOfStudent}</p>
-    <p><i onclick="present(${i})" class="fa-solid fa-check"></i></p>
-    <p><i onclick ="absent(${i})" class="fa-solid fa-xmark"></i></p></div>`
-}
+        Student += `<div><p>${StudentDataFrom[i].nameOfStudent}</p>`
 
-console.log(studentsDetails, "studentsDetails")
-divFromHTML.innerHTML = studentsDetails;
+    }
+    console.log(Student, "Student");
+    studentData.innerHTML = Student;
 
 }
 studentAttendance()
 
+
+function date(index){
+
+    var GetStudentData = JSON.parse(localStorage.getItem("StudentList"));
+
+    var StudentData = GetStudentData[index];
+    console.log(StudentData, "StudentData");
+
+    // var result = StudentData.flatmap(Object.keys);
+
+    var StudentDate = document.getElementById("displayDate");
+    console.log(StudentDate, "StudentDate");
+
+    var Students = [];
+
+    for(var i=0; i< StudentData.length; i++){
+    Students += `<div><p>${StudentData[i].nameOfStudent}</p>`
+
+
+}
+console.log(Students);
+StudentDate.innerHTML = Students;
+}
+
+date()
 
 // function displayingstudentlist(){
 
