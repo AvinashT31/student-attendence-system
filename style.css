@@ -9,11 +9,49 @@
     height: 200px;
 }
 
-#student{
-    display: flex;
-}
-#studentInfo{
+#student > div:nth-child(1){
     border: 1px solid black;
     width: 100%;
-    height: 30px; 
+    height: 30px;
+    display: flex;
+}
+
+
+#student > div:nth-child(1) > div:nth-child(1){
+    border: 1px solid black;
+    width: 20%;
+    height: 30px;
+}
+
+#student > div:nth-child(1) > div:nth-child(2){
+    border: 1px solid black;
+    width: 80%;
+    height: 30px;
+}
+
+
+#student > div:nth-child(2){
+    border: 1px solid black;
+    width: 100%;
+    height: 170px;
+    display: flex;
+}
+
+
+#student > div:nth-child(2) > div:nth-child(1){
+    border: 1px solid black;
+    width: 20%;
+    height: 170px;
+}
+
+#student > div:nth-child(2) > div:nth-child(2){
+    border: 1px solid black;
+    width: 80%;
+    height: 170px;
+}
+
+#StudentInfo{
+    border: 1px solid blue;
+    display: flex;
+    justify-content: space-evenly;
 }
