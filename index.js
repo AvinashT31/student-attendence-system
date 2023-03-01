@@ -26,6 +26,8 @@ function addstudent() {
 
     document.getElementById("addingstudents").value = "";
     markingAttendance();
+    Name();
+    
     // studentAttendance();
     // displayingstudentlist();
 
@@ -85,7 +87,7 @@ function markingAttendance() {
     var students = []
 
     for (var i = 0; i < StudentList.length; i++) {
-        students += `<div id = "content"><p>${StudentList[i].nameOfStudent}</p> <p><i onclick="present(${i})" class="fa-solid fa-check"></i></p><p><i onclick ="absent(${i})" class="fa-solid fa-xmark"></i></p></div>`
+        students += `<div id = "content"><p>${StudentList[i].nameOfStudent}</p><p><i onclick="present(${i})"class="fa-solid fa-check"></i></p><p><i onclick ="absent(${i})" class="fa-solid fa-xmark"></i></p></div>`
     }
 
     console.log(students, "students")
@@ -229,62 +231,83 @@ function displayingStudentAttendance() {
 
         }
     }
-    console.log(dates, "dates")
-    for25.innerHTML = dates;
 
-    // var finalArrayWithAtt = [];
-    // var settingDates = ['2023-02-26']
-    // for (var i = 0; i < dataFromLS.length; i++) {
-    //     // console.log(dataFromLS[i].Attendance,"heree");
-    //     if (dataFromLS[i].Attendance.length) {
-    //         for (var j = 0; j < dataFromLS[i].Attendance.length; j++) {
-    //             for (var k = 0; k < settingDates.length; k++) {
-    //                 if (dataFromLS[i].Attendance[j][settingDates[k]]) {
-    //                     // console.log((dataFromLS[i].Attendance[j][settingDates[k]]), dataFromLS[i].nameOfStudent, dd[k])
-    //                     finalArrayWithAtt += `<div>${dataFromLS[i].Attendance[j][settingDates[k]]}</div>`;
-    //                 }
-    //             }
-    //         }
-    //     } else {
-    //         finalArrayWithAtt += `<div>No data</div>`;
-    //     }
-    // }
-    // // console.log(check, 'check')
-    // for25.innerHTML = finalArrayWithAtt;
-}
-
-displayingStudentAttendance()
-
-function displaystatus(){
-
-    var displayingStatus = document.getElementById("DisplayStatus");
-    var dataFromLS = JSON.parse(localStorage.getItem("StudentList"));
-
-
-    var finalArrayWithAtt = [];
-    var settingDates = ['2023-02-26']
+    var finalArrayWithAtt = [[],[],,[],[]];
+    var settingDates = ['2023-02-27', '2023-02-28']
     for (var i = 0; i < dataFromLS.length; i++) {
         // console.log(dataFromLS[i].Attendance,"heree");
         if (dataFromLS[i].Attendance.length) {
             for (var j = 0; j < dataFromLS[i].Attendance.length; j++) {
                 for (var k = 0; k < settingDates.length; k++) {
                     if (dataFromLS[i].Attendance[j][settingDates[k]]) {
-                        // console.log((dataFromLS[i].Attendance[j][settingDates[k]]), dataFromLS[i].nameOfStudent, dd[k])
-                        finalArrayWithAtt += `<div>${dataFromLS[i].Attendance[j][settingDates[k]]}</div>`;
+                        console.log((dataFromLS[i].Attendance[j][settingDates[k]]), settingDates[k], i, j , k, "checking here")
+                        finalArrayWithAtt[k][settingDates[k]] += `<div>${dataFromLS[i].Attendance[j][settingDates[k]]}</div>`;
                     }
                 }
             }
-        } else {
-            finalArrayWithAtt += `<div>No data</div>`;
-        }
+        // } else {
+        //     finalArrayWithAtt += `<div>No data</div>`;
+        // }
     }
-    // console.log(check, 'check')
-    displayingStatus.innerHTML = finalArrayWithAtt;
-
-
+    
+    console.log(dates, "dates")
+    for25.innerHTML = dates;
 }
 
-displaystatus()
+displayingStudentAttendance()
+
+// function displaystatus(){
+
+//     var displayingStatus = document.getElementById("DisplayStatus");
+//     var dataFromLS = JSON.parse(localStorage.getItem("StudentList"));
+
+
+//     var finalArrayWithAtt = [[],[],,[],[]];
+//     var settingDates = ['2023-02-27', '2023-02-28']
+//     for (var i = 0; i < dataFromLS.length; i++) {
+//         // console.log(dataFromLS[i].Attendance,"heree");
+//         if (dataFromLS[i].Attendance.length) {
+//             for (var j = 0; j < dataFromLS[i].Attendance.length; j++) {
+//                 for (var k = 0; k < settingDates.length; k++) {
+//                     if (dataFromLS[i].Attendance[j][settingDates[k]]) {
+//                         console.log((dataFromLS[i].Attendance[j][settingDates[k]]), settingDates[k], i, j , k, "checking here")
+//                         finalArrayWithAtt[k][settingDates[k]] += `<div>${dataFromLS[i].Attendance[j][settingDates[k]]}</div>`;
+//                     }
+//                 }
+//             }
+//         // } else {
+//         //     finalArrayWithAtt += `<div>No data</div>`;
+//         // }
+//     }
+//     // console.log(check, 'check')
+//     displayingStatus.innerHTML = finalArrayWithAtt;
+
+
+// }
+
+// displaystatus()
+
+
+// var finalArrayWithAtt = [];
+//     var settingDates = ['2023-02-27']
+//     for (var i = 0; i < dataFromLS.length; i++) {
+//         // console.log(dataFromLS[i].Attendance,"heree");
+//         if (dataFromLS[i].Attendance.length) {
+//             for (var j = 0; j < dataFromLS[i].Attendance.length; j++) {
+//                 for (var k = 0; k < settingDates.length; k++) {
+//                     if (dataFromLS[i].Attendance[j][settingDates[k]]) {
+//                         // console.log((dataFromLS[i].Attendance[j][settingDates[k]]), dataFromLS[i].nameOfStudent, dd[k])
+//                         finalArrayWithAtt += `<div>${dataFromLS[i].Attendance[j][settingDates[k]]}</div>`;
+//                     }
+//                 }
+//             }
+//         } else {
+//             finalArrayWithAtt += `<div>No data</div>`;
+//         }
+//     }
+//     // console.log(check, 'check')
+//     displayingStatus.innerHTML = finalArrayWithAtt;
+
 
 
 // to practise
